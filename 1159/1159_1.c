@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+// 3항 연산자
+
 int main(void){
     int n;
     scanf("%d",&n);
