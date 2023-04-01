@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(void){
-    int max=0,min=100,s,n;
+    int max=-1,min=1001,s,n;
     scanf("%d", &n);
     for (int i = 0; i < n; i++){
         scanf("%d", &s);
@@ -10,6 +10,6 @@ int main(void){
         if (min > s)
             min = s;
     }
-    printf("%d %d",max,min);
+    printf("%d", max-min);
     return 0;
 }
