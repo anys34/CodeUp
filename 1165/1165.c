@@ -1,8 +1,9 @@
 #include <stdio.h>
+int main()
+{
+   int t, score;
+   scanf("%d %d", &t, &score);
+   printf("%d",1 + score + ((89 - t) / 5));
 
-int main(void){
-    int t, s;
-    scanf("%d %d", &t, &s);
-    printf("%d", (t == 90 ? s : (89 - t) / 5 + s));
-    return 0;
+   return 0;
 }

@@ -2,12 +2,11 @@
 
 // 모두 삼항 연산자로
 
-int main(void){
-    int a,b,y,m,d;
-    char gen;
-    scanf("%02d%02d%02d-%d",&y,&m,&d,&a);
-    y += ((a==1 || a==2) ? 2000 : 1900);
-    gen = ((a==1 || a==3) ? 'F' : 'M');
-    printf("%d/%02d/%02d %c", y, m, d, gen);
-    return 0;
+int main()
+{
+   int y, m, d, gender;
+   scanf("%2d%2d%2d-%1d", &y, &m, &d, &gender);
+   printf("%d%02d/%02d/%02d %c", (gender > 2) ? (20) : (19), y, m, d, (gender%2==0) ? 'F' : 'M');
+   
+   return 0;
 }
