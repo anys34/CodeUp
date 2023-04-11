@@ -1,15 +1,21 @@
 #include <stdio.h>
 
-int main(void) {
-    int t,m,c,s;
-    scanf("%d %d %d", &t, &m, &c);
-    if (m + c >= 60) {
-        s = (m + c) / 60;
-        t += s;
-        if (t > 23)
-            t -= 24;
-        m += c - s * 60; 
-    }
-    printf("%d %d", t, m);
-    return 0;
+int main() {
+int hour, minute, time;
+int mok;
+scanf("%d %d",&hour,&minute);
+scanf("%d", &time);
+minute = minute + time;
+if(minute>59)
+{
+mok = minute / 60;
+
+minute = minute % 60;
+hour += mok;
+if(hour>23)
+{
+hour = hour % 24;
+}
+}
+printf("%d %d",hour,minute);
 }
