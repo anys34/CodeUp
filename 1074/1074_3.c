@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-// do while
+// for
 
 int main(void) {
     int a;
     scanf("%d", &a);
-    do {
+    for (;;) {
         printf("%d\n", a);
         a--;
         if (a == 0) break;
