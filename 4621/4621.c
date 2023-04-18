@@ -7,6 +7,7 @@ int main(void) {
         if (n % i == 0) cnt++;
         if (cnt == k) {
             sum = i;
+            break;
         }
     }
     printf("%d", sum);
