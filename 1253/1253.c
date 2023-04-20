@@ -2,21 +2,19 @@
 
 int main()
 {
-	int i, a, b, min, max;
-
+	int i, a, b, max;
 	scanf("%d %d", &a, &b);
 	if (a>=b) { 
 		max=a; 
-		min=b;
+		i=b;
 	} else {
 		max=b;
-		min=a;
+		i=a;
 	}
-	i = min;
+
     while (1) {
         printf("%d ", i);
-        if (max == i) break;
-        i++;
+        if (max == i++) break;
     }
     
 	return 0;
