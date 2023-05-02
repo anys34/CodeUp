@@ -4,9 +4,10 @@ int main(void) {
     int n, m, f;
     int a[10000001], b[100001];
     scanf("%d", &n);
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++) {
         scanf("%d", &f);
         a[f] = f;
+    }
     scanf("%d", &m);
     for (int i = 0; i < m; i++) {
         scanf("%d", &f);
