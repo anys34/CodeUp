@@ -7,6 +7,6 @@ int main(void) {
         sum += n%10;
         n /= 10;
     }
-    printf("%ld\n", (sum % 7 == 4 ? suspect : citizen));
+    printf("%s", (sum % 7 == 4 ? "suspect" : "citizen"));
     return 0;
 }
