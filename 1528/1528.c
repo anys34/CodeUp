@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 void f() {
-    printf("%d", 123);
+    printf("*");
 }
 
 int main(void) {
