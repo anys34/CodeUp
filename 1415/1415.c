@@ -1,19 +1,19 @@
 #include <stdio.h>
 
 int main(void) {
-    int odd = 0, even = 0, temp;
+    int temp, odd = 0, even = 0;
     for (int i = 0; i < 10; i++) {
         scanf("%d", &temp);
-        if (temp % 2 == 0)
-            if (even < temp)
-                even = temp;
-        else
-            if (odd < temp)
-                odd = temp;
+        if (temp % 2 == 0 && temp > even) {
+            even = temp;
+        }
+        else if (temp % 2 == 1 && odd < temp) {
+            odd = temp;
+        }
     }
-    if(odd != 0)
-    printf("%d ", odd);
-    if(even != 0)
-    printf("%d", even);
+    if (odd)
+        printf("%d ", odd);
+    if (even) 
+        printf("%d", even);
     return 0;
 }
