@@ -16,61 +16,40 @@ int endNum(char loan[1000][100]) {
 }
 
 int main(void) {
-    int n, order, m;
-    char ctmp[100], input[100];
-    char loan[1000][100] = {0};
-    int cnt[1000] = {};
+    int n, order, m, cnt[1000] = {};
+    char ctmp[100], input[100], loan[1000][100] = {0};
     scanf("%d", &n);
     getchar();
     for (int i = 0; i < n; i++) {
         fgets(input, sizeof(input), stdin);
-        sscanf(input, "%d %99[^\n]", &order, ctmp);
-        switch (order) {
-            case 0:
+        sscanf(input, "%d %[^\n]", &order, ctmp);
+        if (order == 0)
+            for (int i = 0; i < endNum(loan); i++)
+                printf("%s %d\n", loan[i], cnt[i]);
+        else if (order == 1) {
+            m = findBook(loan, ctmp);
+            if (m == -1) {
                 m = endNum(loan);
-                for (int i = 0; i < m; i++) {
-                    printf("%s %d\n", loan[i], cnt[i]);
-                }
-                break;
-            case 1:
-                m = findBook(loan, ctmp);
-                if (m == -1) {
-                    m = endNum(loan);
-                    strcpy(loan[m], ctmp);
-                    cnt[m] = 1;
-                } else {
-                    cnt[m]++;
-                }
-                break;
-            case 2:
-                m = findBook(loan, ctmp);
-                if (m == -1) {
-                    printf("no book!\n");
-                } else {
-                    cnt[m]--;
-                    if (cnt[m] == 0) {
-                        if(loan[m+1][0] == 0) {
-                            strcpy(loan[m], loan[m+1]);
-                            loan[m+1][0] = 0;
-                            cnt[m] = cnt[m+1];
-                        }
-                        else {
-                            for (int j = m; j < 1000; j++) {
-                                if(loan[j+1][0] != 0) {
-                                    strcpy(loan[j], loan[j+1]);
-                                    loan[j+1][0] = 0;
-                                    cnt[j] = cnt[j+1];
-                                }
-                                else break;
-                            }
-                        }
-                    }
-                }
-                break;
-            default:
-                printf("wrong command!\n");
-                break;
+                strcpy(loan[m], ctmp);
+                cnt[m] = 1;
+            } else cnt[m]++;
         }
+        else if (order == 2) {
+            m = findBook(loan, ctmp);
+            if (m == -1) printf("no book!\n");
+            else {
+                cnt[m]--;
+                if(cnt[m] == 0)
+                    for (int j = m; j < 1000; j++) {
+                        if(loan[j+1][0] != 0 || j == m) {
+                            strcpy(loan[j], loan[j+1]);
+                            loan[j+1][0] = 0;
+                            cnt[j] = cnt[j+1];
+                        }
+                        else break;
+                    }
+            }
+        } else printf("wrong command!\n");
     }
     return 0;
 }
