@@ -7,5 +7,5 @@ int gcd(int a, int b) {
 int main(void) {
     int a, b;
     scanf("%d %d", &a, &b);
-    printf("%d", f(a, b));
+    printf("%d", gcd(a, b));
 }
